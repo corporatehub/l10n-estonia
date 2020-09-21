@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2020 CorporateHub (https://corporatehub.eu)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <record id="vat_20" model="account.tax.group">
+        <field name="name">VAT 20% (EE)</field>
+    </record>
+
+    <record id="vat_20_reverse_charge" model="account.tax.group">
+        <field name="name">VAT 20% (EE, reverse-charge)</field>
+    </record>
+
+    <record id="vat_20_non_eu" model="account.tax.group">
+        <field name="name">VAT 20% (EE, non-EU)</field>
+    </record>
+
+    <record id="vat_9" model="account.tax.group">
+        <field name="name">VAT 9% (EE)</field>
+    </record>
+
+    <record id="vat_0" model="account.tax.group">
+        <field name="name">VAT 0% (EE)</field>
+    </record>
+
+    <record id="vat_exempt" model="account.tax.group">
+        <field name="name">VAT Exempt (EE)</field>
+    </record>
+
+</odoo>

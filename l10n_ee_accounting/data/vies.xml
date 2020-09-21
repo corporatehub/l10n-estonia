@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2020 CorporateHub (https://corporatehub.eu)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <record id="vies" model="account.account.tag">
+        <field name="name">(EE) VIES declaration</field>
+        <field name="applicability">taxes</field>
+    </record>
+
+</odoo>

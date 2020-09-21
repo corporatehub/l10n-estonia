@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2020 CorporateHub (https://corporatehub.eu)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <!-- TODO: split by goods/services, or fixed assets IS that  -->
+    <record id="vat_in_1" model="account.tax.template">
+        <field name="sequence">10</field>
+        <field name="description">20% VAT</field>
+        <field name="name">EE 20% VAT</field>
+        <field name="refund_account_id" ref="vat_receivable"/>
+        <field name="account_id" ref="vat_receivable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_5')])]"/>
+        <field name="tax_group_id" ref="vat_20"/>
+    </record>
+
+    <record id="vat_in_11" model="account.tax.template">
+        <field name="sequence">11</field>
+        <field name="description">20% VAT</field>
+        <field name="name">EE 20% VAT: Import</field>
+        <field name="refund_account_id" ref="vat_receivable"/>
+        <field name="account_id" ref="vat_receivable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_5'), ref('kmd2017_5_1')])]"/>
+        <field name="tax_group_id" ref="vat_20"/>
+    </record>
+
+    <record id="vat_in_12" model="account.tax.template">
+        <field name="sequence">12</field>
+        <field name="description">20% VAT</field>
+        <field name="name">EE 20% VAT: Fixed Assets</field>
+        <field name="refund_account_id" ref="vat_receivable"/>
+        <field name="account_id" ref="vat_receivable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_5'), ref('kmd2017_5_2')])]"/>
+        <field name="tax_group_id" ref="vat_20"/>
+    </record>
+
+    <record id="vat_in_13" model="account.tax.template">
+        <field name="sequence">13</field>
+        <field name="description">20% VAT</field>
+        <field name="name">EE 20% VAT: Car (100% business)</field>
+        <field name="refund_account_id" ref="vat_receivable"/>
+        <field name="account_id" ref="vat_receivable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_5'), ref('kmd2017_5_3')])]"/>
+        <field name="tax_group_id" ref="vat_20"/>
+    </record>
+
+    <record id="vat_in_14" model="account.tax.template">
+        <field name="sequence">14</field>
+        <field name="description">20% VAT</field>
+        <field name="name">EE 20% VAT: Car (partially business)</field>
+        <field name="refund_account_id" ref="vat_receivable"/>
+        <field name="account_id" ref="vat_receivable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_5'), ref('kmd2017_5_4')])]"/>
+        <field name="tax_group_id" ref="vat_20"/>
+    </record>
+
+    <record id="vat_in_2" model="account.tax.template">
+        <field name="sequence">20</field>
+        <field name="description">9% VAT</field>
+        <field name="name">EE 9% VAT</field>
+        <field name="refund_account_id" ref="vat_receivable"/>
+        <field name="account_id" ref="vat_receivable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">9</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_5')])]"/>
+        <field name="tax_group_id" ref="vat_9"/>
+    </record>
+
+    <record id="vat_in_21" model="account.tax.template">
+        <field name="sequence">21</field>
+        <field name="description">9% VAT</field>
+        <field name="name">EE 9% VAT: Import</field>
+        <field name="refund_account_id" ref="vat_receivable"/>
+        <field name="account_id" ref="vat_receivable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">9</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_5'), ref('kmd2017_5_1')])]"/>
+        <field name="tax_group_id" ref="vat_9"/>
+    </record>
+
+    <record id="vat_in_3_receivable" model="account.tax.template">
+        <field name="sequence">31</field>
+        <field name="description">0% VAT</field>
+        <field name="name">Non-EU 0% VAT: Receivable</field>
+        <field name="refund_account_id" ref="vat_receivable"/>
+        <field name="account_id" ref="vat_receivable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">none</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_5')])]"/>
+        <field name="tax_group_id" ref="vat_20_non_eu"/>
+    </record>
+    <record id="vat_in_3_payable" model="account.tax.template">
+        <field name="sequence">32</field>
+        <field name="description">0% VAT</field>
+        <field name="name">Non-EU 0% VAT: Payable</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">-20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">none</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_4')])]"/>
+        <field name="tax_group_id" ref="vat_20_non_eu"/>
+    </record>
+    <record id="vat_in_3" model="account.tax.template">
+        <field name="sequence">30</field>
+        <field name="description">0% VAT</field>
+        <field name="name">Non-EU 0% VAT</field>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">group</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_1'), ref('kmd2017_4'), ref('kmd2017_7')])]"/>
+        <field name="tax_group_id" ref="vat_20_non_eu"/>
+        <field name="children_tax_ids" eval="[(6, 0, [ref('vat_in_3_receivable'), ref('vat_in_3_payable')])]"/>
+    </record>
+
+    <record id="vat_in_4_receivable" model="account.tax.template">
+        <field name="sequence">41</field>
+        <field name="description">0% VAT</field>
+        <field name="name">Non-EU 0% VAT (§41¹): Receivable</field>
+        <field name="refund_account_id" ref="vat_receivable"/>
+        <field name="account_id" ref="vat_receivable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">none</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_5')])]"/>
+        <field name="tax_group_id" ref="vat_20_non_eu"/>
+    </record>
+    <record id="vat_in_4_payable" model="account.tax.template">
+        <field name="sequence">42</field>
+        <field name="description">0% VAT</field>
+        <field name="name">Non-EU 0% VAT (§41¹): Payable</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">-20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">none</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_4')])]"/>
+        <field name="tax_group_id" ref="vat_20_non_eu"/>
+    </record>
+    <record id="vat_in_4" model="account.tax.template">
+        <field name="sequence">40</field>
+        <field name="description">0% VAT</field>
+        <field name="name">Non-EU 0% VAT (§41¹)</field>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">group</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_1'), ref('kmd2017_4'), ref('kmd2017_7'), ref('kmd2017_7_1')])]"/>
+        <field name="tax_group_id" ref="vat_20_non_eu"/>
+        <field name="children_tax_ids" eval="[(6, 0, [ref('vat_in_4_receivable'), ref('vat_in_4_payable')])]"/>
+    </record>
+
+    <record id="vat_in_5_receivable" model="account.tax.template">
+        <field name="sequence">51</field>
+        <field name="description">0% VAT</field>
+        <field name="name">EU Reverse Charge VAT (Services): Receivable</field>
+        <field name="refund_account_id" ref="vat_receivable"/>
+        <field name="account_id" ref="vat_receivable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">none</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_5')])]"/>
+        <field name="tax_group_id" ref="vat_20_reverse_charge"/>
+    </record>
+    <record id="vat_in_5_payable" model="account.tax.template">
+        <field name="sequence">52</field>
+        <field name="description">0% VAT</field>
+        <field name="name">EU Reverse Charge VAT (Services): Payable</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">-20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">none</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_4')])]"/>
+        <field name="tax_group_id" ref="vat_20_reverse_charge"/>
+    </record>
+    <record id="vat_in_5" model="account.tax.template">
+        <field name="sequence">50</field>
+        <field name="description">0% VAT</field>
+        <field name="name">EU Reverse Charge VAT (Services)</field>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">group</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_1'), ref('kmd2017_4'), ref('kmd2017_6')])]"/>
+        <field name="tax_group_id" ref="vat_20_reverse_charge"/>
+        <field name="children_tax_ids" eval="[(6, 0, [ref('vat_in_5_receivable'), ref('vat_in_5_payable')])]"/>
+    </record>
+
+    <record id="vat_in_6_receivable" model="account.tax.template">
+        <field name="sequence">61</field>
+        <field name="description">0% VAT</field>
+        <field name="name">EU Reverse Charge VAT (Goods): Receivable</field>
+        <field name="refund_account_id" ref="vat_receivable"/>
+        <field name="account_id" ref="vat_receivable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">none</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_5')])]"/>
+        <field name="tax_group_id" ref="vat_20_reverse_charge"/>
+    </record>
+    <record id="vat_in_6_payable" model="account.tax.template">
+        <field name="sequence">62</field>
+        <field name="description">0% VAT</field>
+        <field name="name">EU Reverse Charge VAT (Goods): Payable</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">-20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">none</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_4')])]"/>
+        <field name="tax_group_id" ref="vat_20_reverse_charge"/>
+    </record>
+    <record id="vat_in_6" model="account.tax.template">
+        <field name="sequence">60</field>
+        <field name="description">0% VAT</field>
+        <field name="name">EU Reverse Charge VAT (Goods)</field>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">group</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_1'), ref('kmd2017_4'), ref('kmd2017_6'), ref('kmd2017_6_1')])]"/>
+        <field name="tax_group_id" ref="vat_20_reverse_charge"/>
+        <field name="children_tax_ids" eval="[(6, 0, [ref('vat_in_6_receivable'), ref('vat_in_6_payable')])]"/>
+    </record>
+
+    <record id="vat_in_7_receivable" model="account.tax.template">
+        <field name="sequence">71</field>
+        <field name="description">0% VAT</field>
+        <field name="name">EU 0% VAT: Receivable</field>
+        <field name="refund_account_id" ref="vat_receivable"/>
+        <field name="account_id" ref="vat_receivable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">none</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_5')])]"/>
+        <field name="tax_group_id" ref="vat_20_non_eu"/>
+    </record>
+    <record id="vat_in_7_payable" model="account.tax.template">
+        <field name="sequence">72</field>
+        <field name="description">0% VAT</field>
+        <field name="name">EU 0% VAT: Payable</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">-20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">none</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_4')])]"/>
+        <field name="tax_group_id" ref="vat_20_non_eu"/>
+    </record>
+    <record id="vat_in_7" model="account.tax.template">
+        <field name="sequence">70</field>
+        <field name="description">0% VAT</field>
+        <field name="name">EU 0% VAT</field>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">group</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_1'), ref('kmd2017_4'), ref('kmd2017_7')])]"/>
+        <field name="tax_group_id" ref="vat_20_non_eu"/>
+        <field name="children_tax_ids" eval="[(6, 0, [ref('vat_in_7_receivable'), ref('vat_in_7_payable')])]"/>
+    </record>
+
+    <record id="vat_in_8" model="account.tax.template">
+        <field name="sequence">80</field>
+        <field name="description">VAT Exempt</field>
+        <field name="name">EE VAT Exempt</field>
+        <field name="refund_account_id" ref="vat_receivable"/>
+        <field name="account_id" ref="vat_receivable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tax_group_id" ref="vat_exempt"/>
+    </record>
+
+    <!--
+        Guidelines used:
+          - https://www.emta.ee/eng/business-client/income-expenses-supply-profit/overview-charging-value-added-tax/charging-value-added
+          - https://www.emta.ee/eng/business-client/income-expenses-supply-profit/overview-charging-value-added-tax/determining-place
+    -->
+
+    <!--
+        Services where the place of supply is determined according to so-called basic rule:
+          - Subsection 10 (1) of VATA
+          - Clause 10 (4) 9) of VATA
+    -->
+
+    <record id="vat_out_S1A" model="account.tax.template">
+        <field name="sequence">110</field>
+        <field name="description">20% VAT</field>
+        <field name="name">EE 20% VAT: Basic-rule service</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_1'), ref('kmd2017_4')])]"/>
+        <field name="tax_group_id" ref="vat_20"/>
+    </record>
+
+    <record id="vat_out_S1B" model="account.tax.template">
+        <field name="sequence">120</field>
+        <field name="description">0% VAT</field>
+        <field name="name">VAT Reverse-Charge: Basic rule service</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_3'), ref('kmd2017_3_1'), ref('vies')])]"/>
+        <field name="tax_group_id" ref="vat_0"/>
+    </record>
+
+    <record id="vat_out_S1C" model="account.tax.template">
+        <field name="sequence">130</field>
+        <field name="description">0% VAT</field>
+        <field name="name">Non-EU 0% VAT: Basic rule service</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_3')])]"/>
+        <field name="tax_group_id" ref="vat_0"/>
+    </record>
+
+    <!--
+        Service connected with an immovable located in Estonia (construction,
+        building and assembly works, incl. repair and maintenance works etc.):
+          - Clause 10 (2) 1) of VATA
+    -->
+
+    <record id="vat_out_S2" model="account.tax.template">
+        <field name="sequence">210</field>
+        <field name="description">20% VAT</field>
+        <field name="name">EE 20% VAT: Immovable-related service</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_1'), ref('kmd2017_4')])]"/>
+        <field name="tax_group_id" ref="vat_20"/>
+    </record>
+
+    <!-- Accommodation in Estonia: clause 15 (2) 4) of VATA -->
+
+    <record id="vat_out_S3" model="account.tax.template">
+        <field name="sequence">310</field>
+        <field name="description">9% VAT</field>
+        <field name="name">EE 9% VAT: Accommodation in EE</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">9</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_2'), ref('kmd2017_4')])]"/>
+        <field name="tax_group_id" ref="vat_9"/>
+    </record>
+
+    <!-- Rent, lease in Estonia: Clause 16 (2) 2) of VATA -->
+
+    <record id="vat_out_S4" model="account.tax.template">
+        <field name="sequence">410</field>
+        <field name="description">VAT Exempt</field>
+        <field name="name">EE VAT Exempt: Rent, lease in EE</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">fixed</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_8')])]"/>
+        <field name="tax_group_id" ref="vat_exempt"/>
+    </record>
+
+    <!--
+        Cultural, artistic, sporting, scientific or entertainment services or
+        services connected with trade fairs or exhibitions are provided in
+        Estonia; the organisation of the related events and provision of
+        ancillary services
+    -->
+
+    <record id="vat_out_S5A" model="account.tax.template">
+        <field name="sequence">510</field>
+        <field name="description">20% VAT</field>
+        <field name="name">EE 20% VAT: Cultural/Exhibition service in Estonia</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_1'), ref('kmd2017_4')])]"/>
+        <field name="tax_group_id" ref="vat_20"/>
+    </record>
+
+    <record id="vat_out_S5B" model="account.tax.template">
+        <field name="sequence">520</field>
+        <field name="description">0% VAT</field>
+        <field name="name">VAT Reverse-Charge: Cultural/Exhibition service in Estonia</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_3'), ref('kmd2017_3_1'), ref('vies')])]"/>
+        <field name="tax_group_id" ref="vat_0"/>
+    </record>
+
+    <record id="vat_out_S5C" model="account.tax.template">
+        <field name="sequence">530</field>
+        <field name="description">0% VAT</field>
+        <field name="name">Non-EU 0% VAT: Cultural/Exhibition service in Estonia</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_3')])]"/>
+        <field name="tax_group_id" ref="vat_0"/>
+    </record>
+
+    <!-- Educational service provided in Estonia: clause 16 (1) 6) of VATA -->
+
+    <record id="vat_out_S6" model="account.tax.template">
+        <field name="sequence">610</field>
+        <field name="description">VAT Exempt</field>
+        <field name="name">EE VAT Exempt: Educational service in Estonia</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_8')])]"/>
+        <field name="tax_group_id" ref="vat_exempt"/>
+    </record>
+
+    <!--
+        Entrance services provided in Estonia and ancillary services related to
+        entrance services
+    -->
+
+    <record id="vat_out_S7" model="account.tax.template">
+        <field name="sequence">710</field>
+        <field name="description">20% VAT</field>
+        <field name="name">EE 20% VAT: Entrance service in Estonia</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_1'), ref('kmd2017_4')])]"/>
+        <field name="tax_group_id" ref="vat_20"/>
+    </record>
+
+    <!--
+        Cultural, artistic, sporting, scientific or entertainment services or
+        services connected with trade fairs or exhibitions are provided in a
+        foreign country; the organisation of the related events and provision
+        of ancillary services
+    -->
+
+    <record id="vat_out_S8A" model="account.tax.template">
+        <field name="sequence">810</field>
+        <field name="description">20% VAT</field>
+        <field name="name">EE 20% VAT: Cultural/Exhibition service outside Estonia</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_1'), ref('kmd2017_4')])]"/>
+        <field name="tax_group_id" ref="vat_20"/>
+    </record>
+
+    <record id="vat_out_S8B" model="account.tax.template">
+        <field name="sequence">820</field>
+        <field name="description">0% VAT</field>
+        <field name="name">0% EE VAT: Cultural/Exhibition service outside Estonia</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_3')])]"/>
+        <field name="tax_group_id" ref="vat_0"/>
+    </record>
+
+    <record id="vat_out_S8C" model="account.tax.template">
+        <field name="sequence">830</field>
+        <field name="description">0% VAT</field>
+        <field name="name">VAT Reverse-Charge: Cultural/Exhibition service outside Estonia</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_3'), ref('kmd2017_3_1'), ref('vies')])]"/>
+        <field name="tax_group_id" ref="vat_0"/>
+    </record>
+
+    <!-- Passenger transport in Estonia: Clause 10 (2) 3) of VATA -->
+
+    <record id="vat_out_S9" model="account.tax.template">
+        <field name="sequence">910</field>
+        <field name="description">20% VAT</field>
+        <field name="name">EE 20% VAT: Passenger transport in Estonia</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_1'), ref('kmd2017_4')])]"/>
+        <field name="tax_group_id" ref="vat_20"/>
+    </record>
+
+    <!-- International route which passes through Estonia: clause 15 (4) 13) of VATA -->
+
+    <record id="vat_out_S10" model="account.tax.template">
+        <field name="sequence">1010</field>
+        <field name="description">0% VAT</field>
+        <field name="name">0% EE VAT: Passenger transport via Estonia</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_3')])]"/>
+        <field name="tax_group_id" ref="vat_0"/>
+    </record>
+
+    <!-- International route outside Estonia: Clause 10 (4) 4) of VATA -->
+
+    <record id="vat_out_S11" model="account.tax.template">
+        <field name="sequence">1110</field>
+        <field name="description">0% VAT</field>
+        <field name="name">0% EE VAT: Passenger transport outside Estonia</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">0</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_3')])]"/>
+        <field name="tax_group_id" ref="vat_0"/>
+    </record>
+
+    <!--
+        Restaurant and catering services provided in Estonia (except on board
+        of vessel or aircraft or in train during international route):
+          - Clause 10 (2) 4) of VATA
+    -->
+
+    <record id="vat_out_S12" model="account.tax.template">
+        <field name="sequence">1210</field>
+        <field name="description">20% VAT</field>
+        <field name="name">EE 20% VAT: Restaurant/catering service in Estonia</field>
+        <field name="refund_account_id" ref="vat_payable"/>
+        <field name="account_id" ref="vat_payable"/>
+        <field name="price_include" eval="0"/>
+        <field name="amount">20</field>
+        <field name="amount_type">percent</field>
+        <field name="type_tax_use">sale</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="tag_ids" eval="[(6,0,[ref('kmd2017_1'), ref('kmd2017_4')])]"/>
+        <field name="tax_group_id" ref="vat_20"/>
+    </record>
+
+</odoo>

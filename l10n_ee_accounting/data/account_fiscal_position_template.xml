@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2020 CorporateHub (https://corporatehub.eu)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <!-- Estonian taxable person -->
+
+    <record id="fp_estonian_taxable" model="account.fiscal.position.template">
+        <field name="sequence">10</field>
+        <field name="name">Estonian taxable person</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="auto_apply" eval="True"/>
+        <field name="country_id" ref="base.ee"/>
+        <field name="vat_required" eval="True"/>
+    </record>
+
+    <record id="fp_estonian_taxable_1" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_estonian_taxable"/>
+        <field name="tax_src_id" ref="vat_in_1"/>
+        <field name="tax_dest_id" ref="vat_in_1"/>
+    </record>
+
+    <record id="fp_estonian_taxable_2" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_estonian_taxable"/>
+        <field name="tax_src_id" ref="vat_out_S1A"/>
+        <field name="tax_dest_id" ref="vat_out_S1A"/>
+    </record>
+
+    <record id="fp_estonian_taxable_3" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_estonian_taxable"/>
+        <field name="tax_src_id" ref="vat_out_S2"/>
+        <field name="tax_dest_id" ref="vat_out_S2"/>
+    </record>
+
+    <record id="fp_estonian_taxable_4" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_estonian_taxable"/>
+        <field name="tax_src_id" ref="vat_out_S3"/>
+        <field name="tax_dest_id" ref="vat_out_S3"/>
+    </record>
+
+    <record id="fp_estonian_taxable_5" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_estonian_taxable"/>
+        <field name="tax_src_id" ref="vat_out_S4"/>
+        <field name="tax_dest_id" ref="vat_out_S4"/>
+    </record>
+
+    <record id="fp_estonian_taxable_6" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_estonian_taxable"/>
+        <field name="tax_src_id" ref="vat_out_S5A"/>
+        <field name="tax_dest_id" ref="vat_out_S5A"/>
+    </record>
+
+    <!-- Estonian non-taxable person -->
+
+    <record id="fp_estonian_nontaxable" model="account.fiscal.position.template">
+        <field name="sequence">15</field>
+        <field name="name">Estonian non-taxable person</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="auto_apply" eval="True"/>
+        <field name="country_id" ref="base.ee"/>
+    </record>
+
+    <record id="fp_estonian_nontaxable_1" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_estonian_nontaxable"/>
+        <field name="tax_src_id" ref="vat_in_1"/>
+        <field name="tax_dest_id" ref="vat_in_8"/>
+    </record>
+
+    <record id="fp_estonian_nontaxable_2" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_estonian_nontaxable"/>
+        <field name="tax_src_id" ref="vat_out_S1A"/>
+        <field name="tax_dest_id" ref="vat_out_S1A"/>
+    </record>
+
+    <record id="fp_estonian_nontaxable_3" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_estonian_nontaxable"/>
+        <field name="tax_src_id" ref="vat_out_S2"/>
+        <field name="tax_dest_id" ref="vat_out_S2"/>
+    </record>
+
+    <record id="fp_estonian_nontaxable_4" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_estonian_nontaxable"/>
+        <field name="tax_src_id" ref="vat_out_S3"/>
+        <field name="tax_dest_id" ref="vat_out_S3"/>
+    </record>
+
+    <record id="fp_estonian_nontaxable_5" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_estonian_nontaxable"/>
+        <field name="tax_src_id" ref="vat_out_S4"/>
+        <field name="tax_dest_id" ref="vat_out_S4"/>
+    </record>
+
+    <record id="fp_estonian_nontaxable_6" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_estonian_nontaxable"/>
+        <field name="tax_src_id" ref="vat_out_S5A"/>
+        <field name="tax_dest_id" ref="vat_out_S5A"/>
+    </record>
+
+    <!-- EU taxable person -->
+
+    <record id="fp_eu_taxable" model="account.fiscal.position.template">
+        <field name="sequence">20</field>
+        <field name="name">EU taxable person</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="auto_apply" eval="True"/>
+        <field name="country_group_id" ref="base.europe"/>
+        <field name="vat_required" eval="True"/>
+    </record>
+
+    <!-- TODO: purchase goods or services? -->
+
+    <record id="fp_eu_taxable_2" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_eu_taxable"/>
+        <field name="tax_src_id" ref="vat_out_S1A"/>
+        <field name="tax_dest_id" ref="vat_out_S1B"/>
+    </record>
+
+    <record id="fp_eu_taxable_3" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_eu_taxable"/>
+        <field name="tax_src_id" ref="vat_out_S2"/>
+        <field name="tax_dest_id" ref="vat_out_S2"/>
+    </record>
+
+    <record id="fp_eu_taxable_4" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_eu_taxable"/>
+        <field name="tax_src_id" ref="vat_out_S3"/>
+        <field name="tax_dest_id" ref="vat_out_S3"/>
+    </record>
+
+    <record id="fp_eu_taxable_5" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_eu_taxable"/>
+        <field name="tax_src_id" ref="vat_out_S4"/>
+        <field name="tax_dest_id" ref="vat_out_S4"/>
+    </record>
+
+    <record id="fp_eu_taxable_6" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_eu_taxable"/>
+        <field name="tax_src_id" ref="vat_out_S5A"/>
+        <field name="tax_dest_id" ref="vat_out_S5B"/>
+    </record>
+
+    <!-- EU non-taxable person -->
+
+    <record id="fp_eu_nontaxable" model="account.fiscal.position.template">
+        <field name="sequence">25</field>
+        <field name="name">EU non-taxable person</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="auto_apply" eval="True"/>
+        <field name="country_group_id" ref="base.europe"/>
+    </record>
+
+    <record id="fp_eu_nontaxable_1" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_eu_nontaxable"/>
+        <field name="tax_src_id" ref="vat_in_1"/>
+        <field name="tax_dest_id" ref="vat_in_7"/>
+    </record>
+
+    <record id="fp_eu_nontaxable_2" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_eu_nontaxable"/>
+        <field name="tax_src_id" ref="vat_out_S1A"/>
+        <field name="tax_dest_id" ref="vat_out_S1A"/>
+    </record>
+
+    <record id="fp_eu_nontaxable_3" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_eu_nontaxable"/>
+        <field name="tax_src_id" ref="vat_out_S2"/>
+        <field name="tax_dest_id" ref="vat_out_S2"/>
+    </record>
+
+    <record id="fp_eu_nontaxable_4" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_eu_nontaxable"/>
+        <field name="tax_src_id" ref="vat_out_S3"/>
+        <field name="tax_dest_id" ref="vat_out_S3"/>
+    </record>
+
+    <record id="fp_eu_nontaxable_5" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_eu_nontaxable"/>
+        <field name="tax_src_id" ref="vat_out_S4"/>
+        <field name="tax_dest_id" ref="vat_out_S4"/>
+    </record>
+
+    <record id="fp_eu_nontaxable_6" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_eu_nontaxable"/>
+        <field name="tax_src_id" ref="vat_out_S5A"/>
+        <field name="tax_dest_id" ref="vat_out_S5A"/>
+    </record>
+
+    <!-- Non-EU person engaged in business -->
+
+    <record id="fp_noneu_engaged" model="account.fiscal.position.template">
+        <field name="sequence">30</field>
+        <field name="name">Non-EU person engaged in business</field>
+        <field name="chart_template_id" ref="chart_template"/>
+        <field name="auto_apply" eval="True"/>
+    </record>
+
+    <record id="fp_noneu_engaged_1" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_noneu_engaged"/>
+        <field name="tax_src_id" ref="vat_in_1"/>
+        <field name="tax_dest_id" ref="vat_in_3"/>
+    </record>
+
+    <record id="fp_noneu_engaged_2" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_noneu_engaged"/>
+        <field name="tax_src_id" ref="vat_out_S1A"/>
+        <field name="tax_dest_id" ref="vat_out_S1C"/>
+    </record>
+
+    <record id="fp_noneu_engaged_3" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_noneu_engaged"/>
+        <field name="tax_src_id" ref="vat_out_S2"/>
+        <field name="tax_dest_id" ref="vat_out_S2"/>
+    </record>
+
+    <record id="fp_noneu_engaged_4" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_noneu_engaged"/>
+        <field name="tax_src_id" ref="vat_out_S3"/>
+        <field name="tax_dest_id" ref="vat_out_S3"/>
+    </record>
+
+    <record id="fp_noneu_engaged_5" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_noneu_engaged"/>
+        <field name="tax_src_id" ref="vat_out_S4"/>
+        <field name="tax_dest_id" ref="vat_out_S4"/>
+    </record>
+
+    <record id="fp_noneu_engaged_6" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_noneu_engaged"/>
+        <field name="tax_src_id" ref="vat_out_S5A"/>
+        <field name="tax_dest_id" ref="vat_out_S5C"/>
+    </record>
+
+    <!-- Non-EU person not engaged in business -->
+
+    <record id="fp_noneu_not_engaged" model="account.fiscal.position.template">
+        <field name="sequence">35</field>
+        <field name="name">Non-EU person not engaged in business</field>
+        <field name="chart_template_id" ref="chart_template"/>
+    </record>
+
+    <!-- TODO: is purchase even possible? -->
+
+    <record id="fp_noneu_not_engaged_2" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_noneu_not_engaged"/>
+        <field name="tax_src_id" ref="vat_out_S1A"/>
+        <field name="tax_dest_id" ref="vat_out_S1A"/>
+    </record>
+
+    <record id="fp_noneu_not_engaged_3" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_noneu_not_engaged"/>
+        <field name="tax_src_id" ref="vat_out_S2"/>
+        <field name="tax_dest_id" ref="vat_out_S2"/>
+    </record>
+
+    <record id="fp_noneu_not_engaged_4" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_noneu_not_engaged"/>
+        <field name="tax_src_id" ref="vat_out_S3"/>
+        <field name="tax_dest_id" ref="vat_out_S3"/>
+    </record>
+
+    <record id="fp_noneu_not_engaged_5" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_noneu_not_engaged"/>
+        <field name="tax_src_id" ref="vat_out_S4"/>
+        <field name="tax_dest_id" ref="vat_out_S4"/>
+    </record>
+
+    <record id="fp_noneu_not_engaged_6" model="account.fiscal.position.tax.template">
+        <field name="position_id" ref="fp_noneu_not_engaged"/>
+        <field name="tax_src_id" ref="vat_out_S5A"/>
+        <field name="tax_dest_id" ref="vat_out_S5A"/>
+    </record>
+
+</odoo>
